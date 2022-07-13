@@ -34,7 +34,13 @@ function questionsForm() {
             });
             document.querySelectorAll("input[type='radio']").forEach((ele, i) => ele.addEventListener("change", (e) => {
                 console.log(e.target.dataset.ben)
-                e.target.parentElement.style.backgroundColor = (e.target.dataset.ben == e.target.value) ? "green" : "none"
+
+                if (e.target.dataset.ben == e.target.value) {
+                    e.target.parentElement.style.backgroundColor = "green"
+                    score_board.innerHTML += 1
+                } else {
+                    e.target.parentElement.style.backgroundColor = "none"
+                }
             }))
 
         })
